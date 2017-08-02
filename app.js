@@ -67,6 +67,15 @@ function setAvail(availBit) {
      oldAvailable = available;
  }
 
+// Initiliase a function to make maps
+function jsMap(val, A, B, a, b) {
+    var mapd = (val - A) * (b - a) / (B - A) + a
+    return mapd;
+}
+
+function jsClamp(num, min, max) {
+  return num <= min ? min : num >= max ? max : num;
+}
 
 input.on('pitch', function(msg) {
     // console.log(msg);
@@ -76,11 +85,19 @@ input.on('pitch', function(msg) {
     if (msg.channel == 10) {
         // console.log(msg.value);
         // moveText();
-        if(msg.value > 120){
-            setAvail(true);
-        } else {
-            setAvail(false);
-        }
+        // if(msg.value > 120){
+        //     setAvail(true);
+        // } else {
+        //     setAvail(false);
+        // }
+
+        var reVal = 0;
+        var valInst = msg.value;
+        // Weird mapping to resync the beat phase
+        if(valInst < 64) {reVal = 64 + valInst;} else {reVal = -64 + valInst;}
+
+        var thisVal = jsClamp(Math.floor(jsMap(reVal, 0, 50 , 255, 0)), 0, 255);
+        io.emit('liveBeat', {'clr': thisVal});
     }
 });
 

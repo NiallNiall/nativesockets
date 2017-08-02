@@ -47,6 +47,22 @@
 
     var myCanvas = document.getElementById("paperCanvas");
 
+    // Converts from degrees to radians.
+    Math.radians = function(degrees) {
+      return degrees * Math.PI / 180;
+    };
+
+    var getCircleXPos = function(thisx, inc, Radius) {
+      var angle = Math.radians(inc);
+      var x = thisx + Math.sin(angle) * Radius;
+      return x;
+    }
+
+    var getCircleYPos = function(thisy, inc, Radius) {
+      var angle = Math.radians(inc);
+      var y = thisy + Math.cos(angle) * Radius;
+      return y;
+    }
 
     function clearCanvas(){
         ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
@@ -69,12 +85,39 @@
         ctx.fill();     
     }
 
+    function drawRndCircleClr(x, y, radius, clr){
+
+       for(var i = 0; i < 360; i+=1){
+        var rndrad = Math.floor((Math.random() * radius) + 30);
+        var outx = getCircleXPos(x,i, rndrad);
+        var outy = getCircleYPos(y,i, rndrad);
+
+        drawPixelClr(outx, outy, clr);
+       }  
+    }
+
+    function drawPixelClr(x, y, clr){
+        ctx.beginPath();
+        ctx.rect(x,y,5,5);
+        ctx.fillStyle = clr;
+        ctx.fill();
+        // console.log(x + ', ' + y);
+    }
+
+    function drawCircleClr(x, y, radius, clr){
+        ctx.beginPath();
+        ctx.arc(x,y,radius,0,Math.PI*2);
+        ctx.lineWidth=5;
+        ctx.strokeStyle = clr;
+        ctx.stroke(); 
+    }
+
     function writeMessage(canvas, message) {
         // context.clearRect(0, 0, canvas.width, canvas.height);
         ctx.font = '18pt Calibri';
         ctx.fillStyle = 'white';
         ctx.fillText(message, 10, 25);
-      }
+    }
     function getMousePos(canvas, evt) {
         var rect = canvas.getBoundingClientRect();
         return {
@@ -87,13 +130,17 @@
     myCanvas.height = window.innerHeight;
     var ctx = myCanvas.getContext("2d");
 
+    var x1 = myCanvas.width/2;
+    var y1 = myCanvas.height/2;
+
     var socket = io("/new");
+    var midio = io();
 
     function mouseFunc() {
         console.log('boo');
     }
 
-      myCanvas.addEventListener('mousedown', function(evt) {
+    myCanvas.addEventListener('mousedown', function(evt) {
         var mousePos = getMousePos(myCanvas, evt);
         var mousePosVec = {
             "x":mousePos.x,
@@ -102,10 +149,40 @@
         var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
         clearCanvas();
         writeMessage(myCanvas, message);
-        drawCircle(mousePos.x, mousePos.y, 20);
+
+        x1 = mousePosVec.x;
+        y1 = mousePosVec.y;
+
+        drawCircle(x1, y1, 20);
         console.log(mousePosVec);
         socket.emit('mouseFromCli', mousePosVec);
-      }, false);
+    }, false);
+
+
+
+
+       // Do something when it loads!
+    document.addEventListener("DOMContentLoaded", function() {
+
+        // console.log('ass');
+
+        midio.on('liveBeat', function(data) {
+
+            var thisFade = data.clr;
+
+            console.log('yoasyo');
+
+            clearCanvas();
+
+            // drawDotsRad(dots, thisFade/8);
+
+            drawRndCircleClr(x1, y1, thisFade/8, 'White');
+
+        });
+
+
+    });
+
     </script>
 </body>
 

@@ -48,6 +48,48 @@
     var myCanvas = document.getElementById("paperCanvas");
 
 
+    // Converts from degrees to radians.
+    Math.radians = function(degrees) {
+      return degrees * Math.PI / 180;
+    };
+
+    var getCircleXPos = function(thisx, inc, Radius) {
+      var angle = Math.radians(inc);
+      var x = thisx + Math.sin(angle) * Radius;
+      return x;
+    }
+
+    var getCircleYPos = function(thisy, inc, Radius) {
+      var angle = Math.radians(inc);
+      var y = thisy + Math.cos(angle) * Radius;
+      return y;
+    }
+
+    var sclr = 0;
+
+    function drawRndCircle(x, y, radius){
+
+       for(var i = 0; i < 360; i+=1){
+        var rndrad = Math.floor((Math.random() * radius) + 70);
+        var outx = getCircleXPos(x,i, rndrad);
+        var outy = getCircleYPos(y,i, rndrad);
+
+        drawPixel(outx, outy);
+       }  
+    }
+
+    function drawRndCircleClr(x, y, radius, clr){
+
+       for(var i = 0; i < 360; i+=1){
+        var rndrad = Math.floor((Math.random() * radius) + 30);
+        var outx = getCircleXPos(x,i, rndrad);
+        var outy = getCircleYPos(y,i, rndrad);
+
+        drawPixelClr(outx, outy, clr);
+       }  
+    }
+
+
     function clearCanvas(){
         ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
     }
@@ -61,11 +103,15 @@
     }
 
     function drawPixel(x, y){
+        drawPixelClr(x,y,'White');
+    }
+
+    function drawPixelClr(x, y, clr){
         ctx.beginPath();
         ctx.rect(x,y,5,5);
-        ctx.fillStyle = 'White';
+        ctx.fillStyle = clr;
         ctx.fill();
-        console.log(x + ', ' + y);
+        // console.log(x + ', ' + y);
     }
 
     function drawCircleClr(x, y, radius, clr){
@@ -87,6 +133,9 @@
     myCanvas.height = window.innerHeight;
     var ctx = myCanvas.getContext("2d");
 
+    var x1 = myCanvas.width/2;
+    var y1 = myCanvas.height/2;
+
     var socket = io();
 
     writeMessage(myCanvas, 'asss');
@@ -94,15 +143,25 @@
     // drawPixel(200,200);
 
     function drawDots(thisArray) {
-      for (var i = 0; i < thisArray.length; i++) {
+            for (var i = 0; i < thisArray.length; i++) {
         drawCircleClr(thisArray[i].x, thisArray[i].y, 20, thisArray[i].color);
       }
-
     }
+
+    function drawDotsRad(thisArray, thisRad) {
+      for (var i = 0; i < thisArray.length; i++) {
+        // drawCircleClr(thisArray[i].x, thisArray[i].y, thisRad, thisArray[i].color);
+        drawRndCircleClr(thisArray[i].x, thisArray[i].y, thisRad, 'Red');
+      }
+    }
+
+    // var dots = [];
 
 
  // Do something when it loads!
     document.addEventListener("DOMContentLoaded", function() {
+
+        var dots = [];
 
         // This is listening for message called myFunc
         socket.on('mouseFromNode', function(data) {
@@ -117,7 +176,13 @@
 
             var names = [];
 
-            var dots = [];
+            // dots.length = 0;
+            // var dots = []; //WHY DOES THIS WORK
+
+            // Trying this to clear array
+            for (var i = dots.length; i > 0; i--) {
+             dots.pop();
+            }
 
             for (var i = 0; i < data.length; i++) {
               // names.push(data[i].name);
@@ -127,12 +192,24 @@
               // drawPixel(data.x, data.y);
             }
 
+            // clearCanvas();
+
+            // writeMessage(myCanvas, names);//data.length);
+
+            // drawDots(dots);
+            // console.log(dots);
+
+        });
+
+        socket.on('liveBeat', function(data) {
+
+        var thisFade = data.clr;
             clearCanvas();
 
-            writeMessage(myCanvas, names);//data.length);
+            // console.log(dots);
+            // drawRndCircle(x1, y1, thisFade/4);
 
-            drawDots(dots);
-            console.log(dots);
+            drawDotsRad(dots, thisFade/8);
 
         });
 
