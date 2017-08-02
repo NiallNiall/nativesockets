@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Syncey Test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+    html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        background-color: #fff;
+    }
+
+    #canvas {
+        display: block;
+        position: absolute;
+        z-index: 20;
+        /*background: #f00;*/
+        /*width: 100%;*/
+    }
+
+    .fullWidthCanvas {
+      /*background: #08ff03;*/
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 10;
+    }
+
+    </style>
+</head>
+
+<body>
+
+    <canvas id="paperCanvas" class="fullWidthCanvas" onmousedown="mouseFunc()"resize></canvas>
+
+
+    <script>
+    var flashing = false;
+    var clrFade = 255;
+
+    var myCanvas = document.getElementById("paperCanvas");
+
+
+    function clearCanvas(){
+        ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+    }
+
+    function drawCircle(x, y, radius){
+       ctx.beginPath();
+        ctx.arc(x,y,radius,0,Math.PI*2);
+        ctx.lineWidth=5;
+        ctx.strokeStyle = 'White';
+        ctx.stroke();     
+    }
+
+    function drawPixel(x, y){
+        ctx.beginPath();
+        ctx.rect(x,y,5,5);
+        ctx.fillStyle = 'White';
+        ctx.fill();     
+    }
+
+function writeMessage(canvas, message) {
+        var context = canvas.getContext('2d');
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.font = '18pt Calibri';
+        context.fillStyle = 'black';
+        context.fillText(message, 10, 25);
+      }
+    function getMousePos(canvas, evt) {
+        var rect = canvas.getBoundingClientRect();
+        return {
+          x: evt.clientX - rect.left,
+          y: evt.clientY - rect.top
+        };
+    }
+
+    myCanvas.width = window.innerWidth;
+    myCanvas.height = window.innerHeight;
+    var ctx = myCanvas.getContext("2d");
+
+    var socket = io();
+
+    function mouseFunc() {
+        console.log('boo');
+    }
+
+      myCanvas.addEventListener('mousedown', function(evt) {
+        var mousePos = getMousePos(myCanvas, evt);
+        var mousePosVec = {
+            "x":mousePos.x,
+            "y":mousePos.y
+        }
+        var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+        writeMessage(myCanvas, message);
+        console.log(mousePosVec);
+        socket.emit('mouseFromCli', mousePosVec);
+      }, false);
+    </script>
+</body>
+
+</html>

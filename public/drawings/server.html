@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Syncey Test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+    html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        background-color: #c3c3c8;
+    }
+
+    #canvas {
+        display: block;
+        position: absolute;
+        z-index: 20;
+        /*background: #f00;*/
+        /*width: 100%;*/
+    }
+
+    .fullWidthCanvas {
+      /*background: #08ff03;*/
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 10;
+    }
+
+    </style>
+</head>
+
+<body>
+
+    <canvas id="paperCanvas" class="fullWidthCanvas" resize></canvas>
+
+
+    <script>
+    var flashing = false;
+    var clrFade = 255;
+
+    var myCanvas = document.getElementById("paperCanvas");
+
+
+    function clearCanvas(){
+        ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+    }
+
+    function drawCircle(x, y, radius){
+       ctx.beginPath();
+        ctx.arc(x,y,radius,0,Math.PI*2);
+        ctx.lineWidth=5;
+        ctx.strokeStyle = 'White';
+        ctx.stroke();     
+    }
+
+    function drawPixel(x, y){
+        ctx.beginPath();
+        ctx.rect(x,y,5,5);
+        ctx.fillStyle = 'White';
+        ctx.fill();
+        console.log(x + ', ' + y);
+    }
+
+    function drawCircleClr(x, y, radius, clr){
+        ctx.beginPath();
+        ctx.arc(x,y,radius,0,Math.PI*2);
+        ctx.lineWidth=5;
+        ctx.strokeStyle = clr;
+        ctx.stroke(); 
+    }
+
+    function writeMessage(canvas, message) {
+        var context = canvas.getContext('2d');
+        // context.clearRect(0, 0, canvas.width, canvas.height);
+        context.font = '18pt Calibri';
+        context.fillStyle = 'black';
+        context.fillText(message, 10, 25);
+      }
+
+    myCanvas.width = window.innerWidth;
+    myCanvas.height = window.innerHeight;
+    var ctx = myCanvas.getContext("2d");
+
+    var socket = io();
+
+    writeMessage(myCanvas, 'asss');
+
+    // drawPixel(200,200);
+
+    function drawDots(thisArray) {
+
+
+      for (var i = 0; i < thisArray.length; i++) {
+        // drawPixel(thisArray[i].x, thisArray[i].y);
+        drawCircleClr(thisArray[i].x, thisArray[i].y, 20, thisArray[i].color);
+      }
+
+    }
+
+
+ // Do something when it loads!
+    document.addEventListener("DOMContentLoaded", function() {
+
+        // This is listening for message called myFunc
+        socket.on('mouseFromNode', function(data) {
+            // console.log(data.x);
+            // changeText(data.txt);
+            // writeMessage(myCanvas, data.x + ', ' + data.y);
+            // drawPixel(data.x, data.y);
+        });
+
+        // This is listening for message called myFunc
+        socket.on('clientsFromNode', function(data) {
+            // console.log(data);
+            // changeText(data.txt);
+
+            // var xy = [];
+            // xy.length = 0;
+
+            var names = [];
+
+            var dots = [];
+
+            for (var i = 0; i < data.length; i++) {
+              // names.push(data[i].name);
+              // console.log(data[i]);
+              names.push(data[i].x + ', ' + data[i].y);
+              dots.push(data[i]);
+              // drawPixel(data.x, data.y);
+            }
+
+            clearCanvas();
+
+            writeMessage(myCanvas, names);//data.length);
+
+            drawDots(dots);
+            console.log(dots);
+
+            // drawPixel(data.x, data.y);
+            // drawPixel(100, 100);
+
+        });
+
+
+    });
+
+
+
+      // myCanvas.addEventListener('mousedown', function(evt) {
+      //   var mousePos = getMousePos(myCanvas, evt);
+      //   var mousePosVec = {
+      //       "x":mousePos.x,
+      //       "y":mousePos.y
+      //   }
+      //   var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+      //   writeMessage(myCanvas, message);
+      //   console.log(mousePosVec);
+      //   socket.emit('mouseFromCli', mousePosVec);
+      // }, false);
+    </script>
+</body>
+
+</html>

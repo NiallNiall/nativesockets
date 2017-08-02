@@ -1,0 +1,51 @@
+html, body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#canvas {
+	display: block;
+	position: absolute;
+	z-index: 20;
+	/*background: #f00;*/
+	/*width: 100%;*/
+}
+
+.fullWidthCanvas {
+  /*background: #08ff03;*/
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+}
+
+.fullwidth {
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+}
+
+.fullwidth.light {
+	background: #fff;
+}
+
+.mainText {
+	display: block;
+	position: absolute;
+	color:#fff;
+	z-index: 999;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 84px;
+	width:100%;
+	text-align: center;
+	display: none;
+}
+
+.mainText.second {
+	bottom: 50px;
+	/*display: block;*/
+}

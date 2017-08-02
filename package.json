@@ -1,0 +1,15 @@
+{
+  "name": "Nativesockets",
+  "version": "1.0.0",
+  "author": "Niall Henn",
+  "dependencies": {
+    "easymidi": "0.0.2",
+    "express": "^4.14.1",
+    "jazz-midi": "^1.5.4",
+    "socket.io": "^1.7.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  }
+}
