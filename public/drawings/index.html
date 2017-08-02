@@ -14,7 +14,7 @@
     }
 
     body {
-        background-color: #fff;
+        background-color: #03030c;
     }
 
     #canvas {
@@ -55,6 +55,8 @@
     function drawCircle(x, y, radius){
        ctx.beginPath();
         ctx.arc(x,y,radius,0,Math.PI*2);
+        ctx.fillStyle = '#888';
+        ctx.fill();
         ctx.lineWidth=5;
         ctx.strokeStyle = 'White';
         ctx.stroke();     
@@ -67,12 +69,11 @@
         ctx.fill();     
     }
 
-function writeMessage(canvas, message) {
-        var context = canvas.getContext('2d');
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.font = '18pt Calibri';
-        context.fillStyle = 'black';
-        context.fillText(message, 10, 25);
+    function writeMessage(canvas, message) {
+        // context.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.font = '18pt Calibri';
+        ctx.fillStyle = 'white';
+        ctx.fillText(message, 10, 25);
       }
     function getMousePos(canvas, evt) {
         var rect = canvas.getBoundingClientRect();
@@ -86,7 +87,7 @@ function writeMessage(canvas, message) {
     myCanvas.height = window.innerHeight;
     var ctx = myCanvas.getContext("2d");
 
-    var socket = io();
+    var socket = io("/new");
 
     function mouseFunc() {
         console.log('boo');
@@ -99,7 +100,9 @@ function writeMessage(canvas, message) {
             "y":mousePos.y
         }
         var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
+        clearCanvas();
         writeMessage(myCanvas, message);
+        drawCircle(mousePos.x, mousePos.y, 20);
         console.log(mousePosVec);
         socket.emit('mouseFromCli', mousePosVec);
       }, false);

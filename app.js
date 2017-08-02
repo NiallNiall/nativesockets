@@ -88,7 +88,7 @@ input.on('pitch', function(msg) {
 var clients = [];
 
 // Execute when a connection is made
-io.on('connection', function(socket) {
+io.of("/new").on('connection', function(socket) {
 
     console.log('A New Connection! ' + socket.id)
 

@@ -14,7 +14,7 @@
     }
 
     body {
-        background-color: #c3c3c8;
+        background-color: #030303;
     }
 
     #canvas {
@@ -77,11 +77,10 @@
     }
 
     function writeMessage(canvas, message) {
-        var context = canvas.getContext('2d');
         // context.clearRect(0, 0, canvas.width, canvas.height);
-        context.font = '18pt Calibri';
-        context.fillStyle = 'black';
-        context.fillText(message, 10, 25);
+        ctx.font = '18pt Calibri';
+        ctx.fillStyle = 'white';
+        ctx.fillText(message, 10, 25);
       }
 
     myCanvas.width = window.innerWidth;
@@ -95,10 +94,7 @@
     // drawPixel(200,200);
 
     function drawDots(thisArray) {
-
-
       for (var i = 0; i < thisArray.length; i++) {
-        // drawPixel(thisArray[i].x, thisArray[i].y);
         drawCircleClr(thisArray[i].x, thisArray[i].y, 20, thisArray[i].color);
       }
 
@@ -116,13 +112,8 @@
             // drawPixel(data.x, data.y);
         });
 
-        // This is listening for message called myFunc
+        // This is listening for a function with the name
         socket.on('clientsFromNode', function(data) {
-            // console.log(data);
-            // changeText(data.txt);
-
-            // var xy = [];
-            // xy.length = 0;
 
             var names = [];
 
@@ -143,27 +134,11 @@
             drawDots(dots);
             console.log(dots);
 
-            // drawPixel(data.x, data.y);
-            // drawPixel(100, 100);
-
         });
 
 
     });
 
-
-
-      // myCanvas.addEventListener('mousedown', function(evt) {
-      //   var mousePos = getMousePos(myCanvas, evt);
-      //   var mousePosVec = {
-      //       "x":mousePos.x,
-      //       "y":mousePos.y
-      //   }
-      //   var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
-      //   writeMessage(myCanvas, message);
-      //   console.log(mousePosVec);
-      //   socket.emit('mouseFromCli', mousePosVec);
-      // }, false);
     </script>
 </body>
 
