@@ -1,3 +1,33 @@
+var dirArg = '';
+var thisDir = 'drawings';
+// print process.argv
+process.argv.forEach((val, index) => {
+  // console.log(`${index}: ${val}`);
+
+  if(index == 2){
+    dirArg = val;
+  }
+
+});
+
+// console.log(dirArg);
+
+switch(dirArg) {
+    case 'drawings':
+        thisDir = 'drawings';
+        console.log('drawings');
+        break;
+    case 'words':
+        thisDir = 'words';
+        console.log('words');
+        break;
+    default:
+        thisDir = 'drawings';
+        console.log('drawings');
+}
+
+
+
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
@@ -10,8 +40,6 @@ var input = new easymidi.Input('Phonode Midi', true);
 
 
 //Start the server
-// var thisDir = 'words';
-var thisDir = 'drawings';
 app.use(express.static(__dirname + '/public/' + thisDir));
 
 var port = 3000;
