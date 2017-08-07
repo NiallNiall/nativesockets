@@ -33,6 +33,8 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+var helpers = require('./helper');
+
 // Load the Easy midi Stuff
 var easymidi = require('easymidi');
 // Make a new Port and name it
@@ -67,15 +69,7 @@ function moveText(){
     io.emit('myFunc', {'txt': txt[txtNum]});
 }
 
-function randomClr(){
-    var R = Math.floor(Math.random() * 250) + 10;
-    var G = Math.floor(Math.random() * 250) + 10;
-    var B = Math.floor(Math.random() * 250) + 10;
 
-    var outputClr = 'rgb(' + R + ', ' + G + ', ' + B + ')';
-    return outputClr;
-
-}
 
 
 function setAvail(availBit) {
@@ -95,15 +89,6 @@ function setAvail(availBit) {
      oldAvailable = available;
  }
 
-// Initiliase a function to make maps
-function jsMap(val, A, B, a, b) {
-    var mapd = (val - A) * (b - a) / (B - A) + a
-    return mapd;
-}
-
-function jsClamp(num, min, max) {
-  return num <= min ? min : num >= max ? max : num;
-}
 
 input.on('pitch', function(msg) {
     // console.log(msg);
@@ -124,7 +109,7 @@ input.on('pitch', function(msg) {
         // Weird mapping to resync the beat phase
         if(valInst < 64) {reVal = 64 + valInst;} else {reVal = -64 + valInst;}
 
-        var thisVal = jsClamp(Math.floor(jsMap(reVal, 0, 50 , 255, 0)), 0, 255);
+        var thisVal = helpers.jsClamp(Math.floor(helpers.jsMap(reVal, 0, 50 , 255, 0)), 0, 255);
         io.emit('liveBeat', {'clr': thisVal});
     }
 });
