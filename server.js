@@ -1,5 +1,4 @@
-module.exports = function (app) {
-    app.get('/test', function(req, res) {
-        res.json(200, {'test': 'it works!'})
-    })
-}
+var dirArg = '';
+process.argv.forEach((val, index) => { if(index == 2){ dirArg = val; } });
+
+var Server = require('./startServer');

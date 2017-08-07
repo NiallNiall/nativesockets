@@ -35,6 +35,10 @@ var io = require('socket.io')(http);
 
 var helpers = require('./helper');
 
+var helpersT = require('./helper-text');
+
+
+
 // Load the Easy midi Stuff
 var easymidi = require('easymidi');
 // Make a new Port and name it
@@ -49,45 +53,41 @@ http.listen(port, function() {
     console.log('Server running on port ' + port);
 });
 
-var txtNum = 0;
-var txt = ['boop', 'tszh'];
-
-// Set Availability Boolean
-var available = true;
-// Create a copy to store previous state
-var oldAvailable = available;
+// // Set Availability Boolean
+// var available = true;
+// // Create a copy to store previous state
+// var oldAvailable = available;
 
 var thisNum = 0;
 
-function moveText(){
-     if(txtNum < txt.length-1){
-        txtNum += 1;
-    } else {
-        txtNum = 0;
-    }
 
-    io.emit('myFunc', {'txt': txt[txtNum]});
-}
+// function moveText(){
+//      if(txtNum < txt.length-1){
+//         txtNum += 1;
+//     } else {
+//         txtNum = 0;
+//     }
+
+//     io.emit('myFunc', {'txt': txt[txtNum]});
+// }
 
 
-
-
-function setAvail(availBit) {
-     available = availBit;
-     if (oldAvailable == available) {
-         // do nothing
-     } else {
-         if (!available) {
-             console.log("");
-             // triggerEvent();
-         } else {
-             console.log("Beat Beat Beat!");
-             // txtNum+=1;
-             moveText();
-         }
-     }
-     oldAvailable = available;
- }
+// function setAvail(availBit) {
+//      available = availBit;
+//      if (oldAvailable == available) {
+//          // do nothing
+//      } else {
+//          if (!available) {
+//              console.log("");
+//              // triggerEvent();
+//          } else {
+//              console.log("Beat Beat Beat!");
+//              // txtNum+=1;
+//              moveText();
+//          }
+//      }
+//      oldAvailable = available;
+//  }
 
 
 input.on('pitch', function(msg) {
@@ -122,9 +122,7 @@ io.of("/new").on('connection', function(socket) {
 
     console.log('A New Connection! ' + socket.id)
 
-    var thisID = socket.id;
-
-    var rndClr = randomClr();
+    var rndClr = helpers.randomClr();
 
     var thisClient = {
         "name": socket.id,
@@ -143,10 +141,10 @@ io.of("/new").on('connection', function(socket) {
     socket.on('disconnect', function() {
       console.log(socket.id + ' disconnected!');
 
-    console.log(clients.indexOf(socket));
+      console.log(clients.indexOf(socket));
 
-    console.log(thisClient.index);
-    clients.splice(thisClient.index, 1);
+      console.log(thisClient.index);
+      clients.splice(thisClient.index, 1);
 
     io.emit('clientsFromNode', clients);
 
