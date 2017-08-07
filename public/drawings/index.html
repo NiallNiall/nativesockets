@@ -140,6 +140,20 @@
         console.log('boo');
     }
 
+    var thisPoint = {
+        "name": "bam",
+        "cWidth": myCanvas.width,
+        "cHeight": myCanvas.height,
+        "x":x1,
+        "y":y1,
+    }
+
+    socket.emit('mouseFromCli', thisPoint);
+
+    // Send data about the page
+    // socket.emit('connctData', data);
+
+
     myCanvas.addEventListener('mousedown', function(evt) {
         var mousePos = getMousePos(myCanvas, evt);
         var mousePosVec = {
@@ -148,14 +162,14 @@
         }
         var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
         clearCanvas();
-        writeMessage(myCanvas, message);
+        // writeMessage(myCanvas, message);
 
-        x1 = mousePosVec.x;
-        y1 = mousePosVec.y;
+        thisPoint.x = mousePosVec.x;
+        thisPoint.y = mousePosVec.y;
 
-        drawCircle(x1, y1, 20);
-        console.log(mousePosVec);
-        socket.emit('mouseFromCli', mousePosVec);
+        // drawCircle(thisPoint.x, thisPoint.y, 20);
+        // console.log(mousePosVec);
+        socket.emit('mouseFromCli', thisPoint);
     }, false);
 
 
@@ -176,7 +190,7 @@
 
             // drawDotsRad(dots, thisFade/8);
 
-            drawRndCircleClr(x1, y1, thisFade/8, 'White');
+            drawRndCircleClr(thisPoint.x, thisPoint.y, thisFade/8, 'White');
 
         });
 

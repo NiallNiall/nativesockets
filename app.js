@@ -147,7 +147,9 @@ io.of("/new").on('connection', function(socket) {
         "x": 100,
         "y": 100,
         "index": clients.length,
-        "color": rndClr
+        "color": rndClr,
+        "cWidth": 200,
+        "cHeight": 200
     }
 
     clients.push(thisClient);
@@ -175,6 +177,9 @@ io.of("/new").on('connection', function(socket) {
         // console.log(clients);
         thisClient.x = data.x;
         thisClient.y = data.y;
+        thisClient.name = data.name;
+        thisClient.cWidth = data.cWidth;
+        thisClient.cHeight = data.cHeight;
         // txt.push(data);
         io.emit('mouseFromNode', data);
         io.emit('clientsFromNode', clients);

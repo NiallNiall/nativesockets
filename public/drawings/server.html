@@ -133,8 +133,11 @@
     myCanvas.height = window.innerHeight;
     var ctx = myCanvas.getContext("2d");
 
-    var x1 = myCanvas.width/2;
-    var y1 = myCanvas.height/2;
+    var midWidth = myCanvas.width/2;
+    var midHeight = myCanvas.height/2;
+
+    // var x1 = myCanvas.width/2;
+    // var y1 = myCanvas.height/2;
 
     var socket = io();
 
@@ -150,8 +153,27 @@
 
     function drawDotsRad(thisArray, thisRad) {
       for (var i = 0; i < thisArray.length; i++) {
+
+        var startX = midWidth - thisArray[i].cWidth/2;
+        var startY = midHeight - thisArray[i].cHeight/2
         // drawCircleClr(thisArray[i].x, thisArray[i].y, thisRad, thisArray[i].color);
-        drawRndCircleClr(thisArray[i].x, thisArray[i].y, thisRad, 'Red');
+        drawRndCircleClr(startX + thisArray[i].x, startY +thisArray[i].y, thisRad, 'Red');
+      }
+    }
+
+    function drawRects(thisArray) {
+
+
+
+      for (var i = 0; i < thisArray.length; i++) {
+
+        var thisRWidth = thisArray[i].cWidth;
+        var thisRHeight = thisArray[i].cHeight;
+
+        ctx.rect(midWidth-thisRWidth/2,midHeight-thisRHeight/2,thisRWidth,thisRHeight);
+        ctx.lineWidth=5;
+        ctx.strokeStyle = 'Blue';
+        ctx.stroke();
       }
     }
 
@@ -162,6 +184,7 @@
     document.addEventListener("DOMContentLoaded", function() {
 
         var dots = [];
+        var dotRects = [];
 
         // This is listening for message called myFunc
         socket.on('mouseFromNode', function(data) {
@@ -208,6 +231,8 @@
 
             // console.log(dots);
             // drawRndCircle(x1, y1, thisFade/4);
+
+            drawRects(dots);
 
             drawDotsRad(dots, thisFade/8);
 
