@@ -21,6 +21,10 @@ switch(dirArg) {
         thisDir = 'words';
         console.log('words');
         break;
+    case 'three':
+        thisDir = 'three';
+        console.log('three');
+        break;
     default:
         thisDir = 'drawings';
         console.log('drawings');
