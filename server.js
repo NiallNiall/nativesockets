@@ -1,4 +1,7 @@
-var dirArg = '';
-process.argv.forEach((val, index) => { if(index == 2){ dirArg = val; } });
+var theseArgs = require('./nh_node/args')(process.argv);
 
-var Server = require('./startServer');
+console.log(theseArgs);
+
+var Server = require('./nh_node/startServer');
+
+var io = require('socket.io')(Server.http);

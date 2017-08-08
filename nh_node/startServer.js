@@ -10,3 +10,7 @@ http.listen(port, function() {
     console.log('Server running on port ' + port);
 });
 
+// Server stuff
+module.exports = {
+	http: http
+}
