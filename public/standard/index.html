@@ -245,22 +245,13 @@ var styleCnt = 0;
                     setBoxClr(bgBox, thisFade);
             }
 
-            // drawCircle(x1, y1, thisFade);
-            // drawNoiseCircle(x1, y1, thisFade);
-            // drawRndCircle(x1, y1, thisFade/4);
-            // if(flashing) {
-            //     setBoxClr(bgBox, thisFade);
-            // }
         });
 
     });
 
-// function thing(event){
-//     console.log('dddd');
-// }
-
 
 window.onmousedown = function(){
+    setBoxClr(bgBox, 0);
     // console.log('yoyoyo');
     if(styleCnt < 2){
         styleCnt +=1;
