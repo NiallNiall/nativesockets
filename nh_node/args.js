@@ -21,8 +21,12 @@ module.exports = function(args) {
             thisDir = 'words';
             // console.log('words');
             break;
+        case 'standard':
+            thisDir = 'standard';
+            // console.log('words');
+            break;
         default:
-            thisDir = 'drawings';
+            thisDir = 'standard';
             // console.log('drawings');
     }
 
