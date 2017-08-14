@@ -3,7 +3,7 @@ module.exports = function(args) {
     var theseArgs = args;
 
     var dirArg = '';
-    var thisDir = '';
+    var thisDir = {};
     // print process.argv
     theseArgs.forEach((val, index) => {
         // console.log(`${index}: ${val}`);
@@ -14,19 +14,43 @@ module.exports = function(args) {
 
     switch (dirArg) {
         case 'drawings':
-            thisDir = 'drawings';
+            thisDir = {
+                'name':'drawings',
+                'folder':'drawings',
+                'midi':'midi-standard'
+            }
             // console.log('drawings');
             break;
         case 'words':
-            thisDir = 'words';
+            thisDir = {
+                'name':'words',
+                'folder':'words',
+                'midi':'midi-standard'
+            }
             // console.log('words');
             break;
         case 'standard':
-            thisDir = 'standard';
+            thisDir = {
+                'name':'standard',
+                'folder':'standard',
+                'midi':'midi-standard'
+            }
+            // console.log('words');
+            break;
+        case 'three':
+            thisDir = {
+                'name':'three',
+                'folder':'three',
+                'midi':'midi-standard'
+            }
             // console.log('words');
             break;
         default:
-            thisDir = 'standard';
+            thisDir = {
+                'name':'standard',
+                'folder':'standard',
+                'midi':'midi-standard'
+            }
             // console.log('drawings');
     }
 
