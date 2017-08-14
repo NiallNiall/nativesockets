@@ -25,7 +25,7 @@ module.exports = function(args) {
             thisDir = {
                 'name':'words',
                 'folder':'words',
-                'midi':'midi-standard'
+                'midi':'midi-text'
             }
             // console.log('words');
             break;
@@ -47,7 +47,7 @@ module.exports = function(args) {
             break;
         default:
             thisDir = {
-                'name':'standard',
+                'name':'Unrecognised, starting Standard as default',
                 'folder':'standard',
                 'midi':'midi-standard'
             }

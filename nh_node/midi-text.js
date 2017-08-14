@@ -5,6 +5,8 @@ var easymidi = require('easymidi');
 // Make a new Port and name it
 var input = new easymidi.Input('Phonode Midi', true);
 
+var textr = require('./helper-text');
+
 
 function reMapBeatPhase(bPhase){
         var reVal = 0;
@@ -18,10 +20,20 @@ function reMapBeatPhase(bPhase){
 
 module.exports = function(io) {
 
+    textr.setIo(io);
+
     input.on('pitch', function(msg) {
         if (msg.channel == 10) {
 
             var thisVal = reMapBeatPhase(msg.value);
+
+            // console.log(msg.value);
+            // moveText();
+            if(thisVal > 120){
+                textr.setAvail(true);
+            } else {
+                textr.setAvail(false);
+            }
 
             io.emit('liveBeat', {'clr': thisVal});
         }
