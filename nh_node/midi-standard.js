@@ -9,9 +9,6 @@ var textr = require('./helper-text');
 
 var io = {};
 
-var behav = require('./renamethis');
-behav.init('aa');
-
 
 function reMapBeatPhase(bPhase){
         var reVal = 0;

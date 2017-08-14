@@ -9,6 +9,10 @@ Server.init(__dirname, version.folder);
 
 var io = require('socket.io')(Server.http);
 
-var Midi = require('./nh_node/' + version.midi);
-// This could probably be rewritten
-Midi.sendIo(io);
+// // Loads a different node file depending on the arguement
+// var Midi = require('./nh_node/' + version.midi);
+// // This could probably be rewritten
+// Midi.sendIo(io);
+
+// Loads a different node file depending on the arguement
+var Midi = require('./nh_node/' + version.midi)(io);

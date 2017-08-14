@@ -17,7 +17,7 @@ module.exports = function(args) {
             thisDir = {
                 'name':'drawings',
                 'folder':'drawings',
-                'midi':'midi-standard'
+                'midi':'midi-drawings'
             }
             // console.log('drawings');
             break;
