@@ -1,0 +1,1946 @@
+/*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
+ */
+/* line 8, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+/* line 18, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ * 2. Add the correct display in IE.
+ */
+/* line 31, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  /* 1 */
+  display: block;
+}
+
+/**
+ * Add the correct display in IE 9-.
+ */
+/* line 50, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+/* line 61, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+/* line 70, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Add the correct display in IE 10-.
+ * 1. Add the correct display in IE.
+ */
+/* line 79, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+template,
+[hidden] {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+/* line 91, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+a {
+  background-color: transparent;
+}
+
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+/* line 100, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+/* line 113, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+/* line 123, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+b,
+strong {
+  font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+/* line 132, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+/* line 141, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+/* line 150, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+/* line 159, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+/* line 168, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+/* line 177, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 185, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 189, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+/* line 200, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+img {
+  border-style: none;
+}
+
+/**
+ * Hide the overflow in IE.
+ */
+/* line 208, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+/* line 220, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/**
+ * Add the correct margin in IE 8.
+ */
+/* line 232, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+/* line 241, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * Change font properties to `inherit` in all browsers (opinionated).
+ */
+/* line 254, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/**
+ * Restore the font weight unset by the previous rule.
+ */
+/* line 265, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+optgroup {
+  font-weight: bold;
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ * 2. Show the overflow in Edge, Firefox, and IE.
+ */
+/* line 275, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+button,
+input,
+select {
+  /* 2 */
+  overflow: visible;
+}
+
+/**
+ * Remove the margin in Safari.
+ * 1. Remove the margin in Firefox and Safari.
+ */
+/* line 286, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+button,
+input,
+select,
+textarea {
+  /* 1 */
+  margin: 0;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+/* line 298, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Change the cursor in all browsers (opinionated).
+ */
+/* line 307, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  cursor: pointer;
+}
+
+/**
+ * Restore the default cursor to disabled elements unset by the previous rule.
+ */
+/* line 318, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+[disabled] {
+  cursor: default;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS.
+ */
+/* line 328, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+/* line 339, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+/* line 349, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+button:-moz-focusring,
+input:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Change the border, margin, and padding in all browsers (opinionated).
+ */
+/* line 358, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+/* line 371, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+/* line 384, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+/* line 393, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+/* line 403, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * Correct the odd appearance of search inputs in Chrome and Safari.
+ */
+/* line 412, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+[type="search"] {
+  -webkit-appearance: textfield;
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome on OS X and
+ * Safari on OS X.
+ */
+/* line 421, /Users/niallhenn/my-repos/nativechat/src/sass/_normalize.scss */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* line 7, /Users/niallhenn/my-repos/nativechat/src/sass/_mixins.scss */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 45, /Users/niallhenn/my-repos/nativechat/src/sass/_mixins.scss */
+.fluidBG {
+  background: url("/img/shared/fluidgraphic-full.jpg");
+  background-size: cover;
+}
+
+/* line 11, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-grid.scss */
+.grid {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* line 7, /Users/niallhenn/my-repos/nativechat/src/sass/_mixins.scss */
+.grid:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 17, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-grid.scss */
+.padded {
+  padding: 20px;
+}
+
+/* line 21, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-grid.scss */
+[class*='col-'] {
+  float: left;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+/* line 27, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-grid.scss */
+.col-1-1 {
+  width: 100%;
+}
+
+/* line 28, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-grid.scss */
+.col-2-3 {
+  width: 66.66%;
+}
+
+/* line 29, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-grid.scss */
+.col-1-3 {
+  width: 33.33%;
+}
+
+/* line 30, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-grid.scss */
+.col-1-2 {
+  width: 50%;
+}
+
+/* line 31, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-grid.scss */
+.col-1-4 {
+  width: 25%;
+}
+
+/* line 32, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-grid.scss */
+.col-1-8 {
+  width: 12.5%;
+}
+
+@media screen and (max-width: 500px) {
+  /* line 35, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-grid.scss */
+  [class*='col-'] {
+    width: 100%;
+    float: none;
+  }
+  /* line 40, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-grid.scss */
+  .mobile-col-2-3, .mobile-col-1-3, .mobile-col-1-2, .mobile-col-1-4, .mobile-col-1-8 {
+    float: left;
+  }
+  /* line 43, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-grid.scss */
+  .mobile-col-2-3 {
+    width: 66.66%;
+  }
+  /* line 44, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-grid.scss */
+  .mobile-col-1-3 {
+    width: 33.33%;
+  }
+  /* line 45, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-grid.scss */
+  .mobile-col-1-2 {
+    width: 50%;
+  }
+  /* line 46, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-grid.scss */
+  .mobile-col-1-4 {
+    width: 25%;
+  }
+  /* line 47, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-grid.scss */
+  .mobile-col-1-8 {
+    width: 12.5%;
+  }
+}
+
+/* line 4, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_layout.scss */
+*,
+*::before,
+*:after {
+  box-sizing: border-box;
+  font-family: "chaparral-pro", sans-serif;
+  text-rendering: optimizeLegibility;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* line 15, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_layout.scss */
+body,
+html {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 24, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_layout.scss */
+body {
+  background-color: #c3ecff;
+  font-weight: 400;
+  line-height: 1.0;
+  color: #003f5d;
+  font-size: 14px;
+}
+
+/* line 33, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_layout.scss */
+::-moz-selection {
+  background: rgba(0, 0, 0, 0.1);
+}
+::selection {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* line 37, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_layout.scss */
+.right {
+  float: right;
+}
+
+/* line 41, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_layout.scss */
+.left {
+  float: left;
+}
+
+/* line 45, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_layout.scss */
+.no-scroll {
+  overflow: hidden;
+}
+
+/* line 49, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_layout.scss */
+.full-width-box {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* line 4, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+h1, h2, h3, h4, h5, h6,
+p, ul, ol, dl, blockquote, pre, button {
+  margin: 0 0 18px 0;
+}
+
+/* line 10, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+.tera {
+  font-size: 86px;
+}
+
+/* line 11, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+.giga {
+  font-size: 60px;
+}
+
+/* line 12, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+.mega {
+  font-size: 48px;
+}
+
+/* line 13, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+.alpha {
+  font-size: 36px;
+}
+
+/* line 14, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+.beta {
+  font-size: 24px;
+}
+
+/* line 15, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+.gamma {
+  font-size: 22px;
+}
+
+/* line 16, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+.delta {
+  font-size: 16px;
+}
+
+/* line 17, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+.epsilon {
+  font-size: 14px;
+}
+
+/* line 18, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+.zeta {
+  font-size: 12px;
+}
+
+/* line 21, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  font-family: "platform", "Platform Web", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+/* line 24, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+  font-family: "platform", "Platform Web", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+/* line 29, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+h1, h2, h3 {
+  line-height: 1.3;
+}
+
+/* line 33, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+h1 {
+  font-size: 48px;
+}
+
+/* line 37, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+h2 {
+  font-size: 36px;
+}
+
+/* line 41, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+h3 {
+  font-size: 24px;
+}
+
+/* line 45, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+h4 {
+  font-size: 22px;
+}
+
+/* line 49, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+h5 {
+  font-size: 14px;
+}
+
+/* line 53, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+h6 {
+  font-size: 12px;
+}
+
+/* line 57, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+strong {
+  font-weight: 700;
+}
+
+/* line 61, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+p {
+  font-weight: normal;
+}
+
+/* line 69, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+ol ol, ol ol ol {
+  margin-bottom: 0;
+}
+
+/* line 74, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+/* line 78, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+ul ul, ul ul ul {
+  margin-bottom: 0;
+}
+
+/* line 84, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+dt {
+  font-weight: bold;
+}
+
+/* line 88, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+dd {
+  margin-left: 1.4em;
+}
+
+/* line 93, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+img {
+  max-width: 100%;
+}
+
+/* line 98, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+a {
+  color: #003f5d;
+  text-decoration: none;
+}
+
+/* line 103, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+a:hover, a.hover {
+  cursor: pointer;
+}
+
+/* line 117, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+.boldlink {
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  color: #ffa6b2;
+}
+
+/* line 126, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+p {
+  opacity: 1.0;
+}
+
+/* line 128, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_typography.scss */
+.wf-loading p {
+  opacity: 0;
+}
+
+/* line 5, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+button {
+  border: none;
+  border-radius: 0;
+  background: none;
+  -webkit-appearance: none;
+}
+
+/* line 11, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+button:focus {
+  outline: none;
+}
+
+/* line 16, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+.btn {
+  padding-bottom: 4px;
+  border-bottom: 2px solid;
+  transition: 0.1s;
+}
+
+/* line 21, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+.btn:hover {
+  padding-bottom: 7px;
+}
+
+/* line 27, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+input, textarea {
+  padding: 10px;
+  display: block;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+/* line 33, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+input:focus, textarea:focus {
+  outline: none;
+}
+
+/* line 38, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+.shadow-box {
+  box-shadow: 2px 2px 39px -4px rgba(0, 0, 0, 0.75);
+}
+
+/* line 51, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+.social-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 54, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+.social-icon svg g {
+  transition: 0.2s;
+  fill: #003f5d;
+}
+
+/* line 62, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+.social-icon {
+  background: #ffa6b2;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  transition: 0.2s;
+}
+
+/* line 69, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+.social-icon a {
+  width: 100%;
+  height: 100%;
+  padding: 3px;
+  display: block;
+}
+
+/* line 77, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+.social-icon:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+/* line 90, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+a.down-arrow-outer {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  display: block;
+  outline: none;
+  z-index: 4;
+  -webkit-transform: translateX(-50%) scale(1);
+          transform: translateX(-50%) scale(1);
+  transition: 0.4s;
+  bottom: 40px;
+}
+
+/* line 104, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+a.down-arrow-outer:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #003f5d;
+  content: '';
+  transition: 0.4s;
+}
+
+/* line 116, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+a.down-arrow-outer:hover {
+  -webkit-transform: translateX(-50%) scale(1.2);
+          transform: translateX(-50%) scale(1.2);
+}
+
+/* line 120, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+a.down-arrow-outer:hover:before {
+  background: #ff7386;
+}
+
+/* line 125, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+.down-arrow:before,
+.down-arrow:after {
+  position: absolute;
+  top: 85%;
+  width: 50%;
+  height: 3px;
+  background: #ffa6b2;
+  content: '';
+  transition: 0.4s;
+}
+
+/* line 135, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+.about-menu-btn .down-arrow:before, .about-menu-btn
+.down-arrow:after {
+  width: 25%;
+}
+
+/* line 139, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+.down-arrow-outer:hover .down-arrow:before, .down-arrow-outer:hover
+.down-arrow:after {
+  background: white;
+}
+
+/* line 144, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+.down-arrow {
+  position: relative;
+  display: block;
+  margin: 0 10% 0 10%;
+  width: 80%;
+  height: 80%;
+}
+
+/* line 150, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+.down-arrow:before {
+  left: 0;
+  -webkit-transform: translateY(0%) rotate(30deg);
+          transform: translateY(0%) rotate(30deg);
+  -webkit-transform-origin: 140% 0;
+          transform-origin: 140% 0;
+}
+
+/* line 155, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_elements.scss */
+.down-arrow:after {
+  left: 50%;
+  -webkit-transform: translateY(0%) rotate(-30deg);
+          transform: translateY(0%) rotate(-30deg);
+  -webkit-transform-origin: -40% 0;
+          transform-origin: -40% 0;
+}
+
+/* line 7, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.dropdown {
+  margin: 0;
+  right: 0;
+  text-align: left;
+}
+
+/* line 14, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.dropdown .dropdown-first {
+  margin-top: 5px;
+  background: #FFF;
+  padding: 0;
+  padding-bottom: 8px;
+  display: none;
+  opacity: 0;
+  transition: 0.2s;
+  position: absolute;
+  width: 200px;
+  right: 0px;
+}
+
+/* line 19, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.dropdown .dropdown-first:before {
+  content: "";
+  width: calc(100% + 8px);
+  height: calc(100% + 4px);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -4px;
+  background: #ffa6b2;
+  /* For browsers that do not support gradients */
+  /* For Safari 5.1 to 6.0 */
+  /* For Opera 11.1 to 12.0 */
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#FFF, #ffA6B2);
+  /* Standard syntax */
+  z-index: -1;
+}
+
+/* line 43, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.dropdown .dropdown-first a {
+  color: #003f5d;
+}
+
+/* line 45, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.dropdown .dropdown-first a:hover {
+  text-decoration: underline;
+}
+
+/* line 51, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.dropdown > li {
+  right: 0;
+  position: relative;
+}
+
+/* Display Dropdowns on Hover */
+/* line 59, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.dropdown li:hover .dropdown-first {
+  display: inherit;
+  opacity: 1.0;
+  padding-top: 5px;
+}
+
+/* line 65, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.dropdown-first li {
+  padding: 0 12px;
+}
+
+/* line 69, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.dropdown-item {
+  right: 0;
+}
+
+/* line 77, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.dropdown .top-level {
+  padding: 6px;
+}
+
+/* line 83, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.dropdown li:hover .top-level {
+  background: #FFF;
+  color: #003f5d;
+}
+
+/* line 88, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.dd-title {
+  color: #003f5d;
+  font-family: "platform", "Platform Web", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  margin: 6px 0;
+}
+
+/* line 99, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.portfolio-header {
+  height: 24px;
+  padding-top: 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  line-height: 1.0;
+}
+
+/* line 110, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.bluebg {
+  color: #0084c3;
+  background: #003f5d;
+}
+
+/* line 113, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.bluebg a {
+  color: #fff;
+}
+
+/* line 118, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.header-logo {
+  font-family: "platform", "Platform Web", Helvetica, Arial, "Lucida Grande", sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* line 137, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.about-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: #ffc1c9;
+  text-align: center;
+}
+
+/* line 150, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.menu-logo {
+  padding: 3px 16px;
+  color: #003f5d;
+  font-family: "platform", "Platform Web", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: bolder;
+  letter-spacing: 0.075em;
+  font-size: 18px;
+  -webkit-font-feature-settings: "kern" on, "liga" on, "calt" on, "ss01";
+          font-feature-settings: "kern" on, "liga" on, "calt" on, "ss01";
+}
+
+/* line 170, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.menu-top {
+  width: 100%;
+  background: #003f5d;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  padding: 0;
+  padding-top: 0;
+  transition: 0.4s cubic-bezier(0.12, -1.5, 0.66, -0.49);
+}
+
+/* line 180, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.menu-top ul {
+  margin: 0;
+  z-index: 5;
+  text-align: center;
+}
+
+/* line 192, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.menu-top.showmenu, .menu-top:hover {
+  padding-top: 30px;
+  transition: 0.4s cubic-bezier(0.12, 2.5, 0.66, 1.29);
+}
+
+/* line 199, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.menu-item {
+  display: inline-block;
+  position: relative;
+  padding: 0 8px;
+  color: white;
+  font-style: italic;
+  letter-spacing: 0.05em;
+  font-size: 18px;
+}
+
+/* line 211, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.menu-item a {
+  color: white;
+}
+
+@media screen and (max-width: 500px) {
+  /* line 199, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+  .menu-item {
+    padding: 0 2px;
+    font-size: 16px;
+  }
+}
+
+/* line 228, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.menu-item:after {
+  content: "";
+  background: white;
+  height: 3px;
+  display: block;
+  z-index: 5;
+  position: absolute;
+  bottom: -3px;
+  width: 100%;
+  width: 0;
+  left: 50%;
+  transition: 0.4s;
+}
+
+/* line 245, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.menu-item:hover:after {
+  width: 100%;
+  left: 0;
+}
+
+/* line 252, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.menu-item-border {
+  color: #003f5d;
+  background: #ffc1c9;
+  border: 3px solid #003f5d;
+  padding-top: 1px;
+}
+
+/* line 257, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.menu-item-border:first-of-type {
+  border-left: none;
+}
+
+/* line 264, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.about-menu-btn {
+  width: 50px;
+  height: 50px;
+  background: #003f5d;
+  display: block;
+  position: absolute;
+  left: 50%;
+  margin-left: -25px;
+  bottom: 0;
+  margin-bottom: -25px;
+  border-radius: 25px;
+  z-index: -1;
+}
+
+/* line 291, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.about-menu-btn .down-arrow:before, .about-menu-btn .down-arrow:after {
+  background: #ffc1c9;
+}
+
+/* line 295, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.about-menu-btn .down-arrow:before {
+  left: 25%;
+}
+
+/* line 297, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.menu-top:hover .about-menu-btn .down-arrow:before, .showmenu .about-menu-btn .down-arrow:before {
+  left: 20%;
+  -webkit-transform: translateY(-10px) rotate(-30deg);
+          transform: translateY(-10px) rotate(-30deg);
+}
+
+/* line 303, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.about-menu-btn .down-arrow:after {
+  left: 45%;
+}
+
+/* line 305, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-header.scss */
+.menu-top:hover .about-menu-btn .down-arrow:after, .showmenu .about-menu-btn .down-arrow:after {
+  -webkit-transform: translateY(-10px) rotate(30deg);
+          transform: translateY(-10px) rotate(30deg);
+  left: 50%;
+}
+
+/* line 4, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-footer.scss */
+.gbl-foot {
+  background: #003f5d;
+  width: 100%;
+  min-height: 36px;
+  padding-top: 32px;
+  padding-bottom: 48px;
+  position: relative;
+  z-index: 50;
+}
+
+/* line 7, /Users/niallhenn/my-repos/nativechat/src/sass/_mixins.scss */
+.gbl-foot:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 650px) {
+  /* line 4, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-footer.scss */
+  .gbl-foot {
+    text-align: center;
+  }
+}
+
+/* line 20, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-footer.scss */
+.gbl-foot-legal {
+  margin-bottom: 20px;
+}
+
+/* line 25, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-footer.scss */
+.foot-info p {
+  line-height: 1.0;
+  margin-bottom: 0;
+  color: #ffc1c9;
+}
+
+/* line 30, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-footer.scss */
+.foot-info a {
+  color: #ffa6b2;
+}
+
+@media screen and (max-width: 650px) {
+  /* line 24, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-footer.scss */
+  .foot-info {
+    float: none;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  /* line 41, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-footer.scss */
+  .footer-social {
+    width: 100%;
+    text-align: center;
+    margin-top: 12px;
+  }
+}
+
+/* line 49, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-footer.scss */
+.footer-social .social-icon {
+  margin-right: 6px;
+  float: left;
+  display: block;
+}
+
+@media screen and (max-width: 650px) {
+  /* line 49, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_global-footer.scss */
+  .footer-social .social-icon {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    float: none;
+  }
+}
+
+/* line 7, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_z-indices.scss */
+.intro-container {
+  z-index: 1;
+}
+
+/* line 12, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_z-indices.scss */
+.gbl-head {
+  z-index: 999;
+}
+
+/* line 16, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_z-indices.scss */
+.gbl-head-bg {
+  z-index: 0;
+}
+
+/* line 20, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_z-indices.scss */
+.agile-home-container {
+  position: relative;
+  z-index: 5;
+}
+
+/* line 25, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_z-indices.scss */
+.whatis-nav {
+  position: relative;
+  z-index: 4;
+}
+
+/* line 5, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_borders.scss */
+.bborder {
+  border-bottom: 3px solid #003f5d;
+}
+
+/* line 11, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_borders.scss */
+.rborder:after {
+  content: "";
+  background: url("/img/shared/fluidgraphic-strip.jpg");
+  width: 100%;
+  height: 6px;
+  display: block;
+  margin-top: 6px;
+}
+
+/* line 19, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_borders.scss */
+.port-section:nth-of-type(1) .rborder:after {
+  background-position: center center;
+}
+
+/* The animation code */
+@-webkit-keyframes bounceIn {
+  0% {
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+  }
+  60% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes bounceIn {
+  0% {
+    -webkit-transform: scale(0.1);
+            transform: scale(0.1);
+  }
+  60% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+/* The Modal (background) */
+/* line 2, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 50;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* line 14, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.modal.modalOpen {
+  display: block;
+}
+
+/* Modal Content/Box */
+/* line 21, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.modal-content {
+  background-color: #ffc1c9;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px 16px 10px 16px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  border: #ffa6b2 4px solid;
+}
+
+/* The Close Button */
+/* line 32, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.close {
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  position: relative;
+  float: right;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: #f3919c;
+  border-radius: 10px;
+}
+
+/* line 45, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.close:before, .close:after {
+  content: "";
+  width: 14px;
+  height: 3px;
+  background: #ffc1c9;
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+  left: 50%;
+  margin-left: -7px;
+  position: absolute;
+  float: left;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+/* line 61, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.close:before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+/* line 65, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.close:after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+/* line 69, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.close:hover:before {
+  -webkit-transform: rotate(-55deg);
+          transform: rotate(-55deg);
+}
+
+/* line 73, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.close:hover:after {
+  -webkit-transform: rotate(55deg);
+          transform: rotate(55deg);
+}
+
+/* line 84, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.modal-title {
+  font-weight: bolder;
+  letter-spacing: 0.075em;
+  font-size: 18px;
+}
+
+/* line 92, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.btn-modal {
+  font-family: "platform", "Platform Web", Helvetica, Arial, "Lucida Grande", sans-serif;
+  display: block;
+  margin: auto;
+  font-size: 18px;
+  padding: 6px 12px;
+  background: #ffc1c9;
+  color: #003f5d;
+  border: 3px solid #003f5d;
+  transition: 0.2s;
+  opacity: 1.0;
+}
+
+/* line 104, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.btn-modal:hover {
+  background: #ffc1c9;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+/* line 110, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.wf-loading .btn-modal {
+  opacity: 0;
+}
+
+/* line 118, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.modal-nav {
+  margin-top: 12px;
+}
+
+/* line 7, /Users/niallhenn/my-repos/nativechat/src/sass/_mixins.scss */
+.modal-nav:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 123, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.modalnav-buttons {
+  color: #f3919c;
+  opacity: 1.0;
+}
+
+/* line 127, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.wf-loading .modalnav-buttons {
+  opacity: 0;
+}
+
+/* line 131, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.modalnav-buttons:after {
+  content: "";
+  display: block;
+  background: #f3919c;
+  height: 3px;
+}
+
+/* line 138, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.modalnav-buttons:hover {
+  color: #003f5d;
+}
+
+/* line 142, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.modalnav-buttons:hover:after {
+  background: #003f5d;
+}
+
+@media screen and (max-width: 650px) {
+  /* line 148, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+  .modalnav-buttons span {
+    display: none;
+  }
+}
+
+/* line 156, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.modal-disclaimer {
+  margin-bottom: 12px;
+  text-align: center;
+  color: #f3919c;
+  display: none;
+}
+
+/* line 162, /Users/niallhenn/my-repos/nativechat/src/sass/shared/_modal.scss */
+.no-webaudio .modal-disclaimer, .no-canvas .modal-disclaimer {
+  display: inline;
+}
+
+/* line 15, /Users/niallhenn/my-repos/nativechat/src/sass/_niall.scss */
+html,
+body {
+  background-color: #FFF;
+  color: #003f5d;
+  font-family: sans-serif;
+  line-height: 1.4;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 27, /Users/niallhenn/my-repos/nativechat/src/sass/_niall.scss */
+.home-header {
+  padding-top: 48px;
+}
+
+/* line 31, /Users/niallhenn/my-repos/nativechat/src/sass/_niall.scss */
+.slidr {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+/* line 39, /Users/niallhenn/my-repos/nativechat/src/sass/_niall.scss */
+.active {
+  opacity: 1.0;
+}
+
+/* line 46, /Users/niallhenn/my-repos/nativechat/src/sass/_niall.scss */
+.homehero-outer.dark {
+  background: #00506e;
+}
+
+/* line 48, /Users/niallhenn/my-repos/nativechat/src/sass/_niall.scss */
+.homehero-outer.dark .homehero-inner {
+  background: #003f5d;
+  color: white;
+}
+
+/* line 53, /Users/niallhenn/my-repos/nativechat/src/sass/_niall.scss */
+.homehero-outer.dark h1 {
+  color: white;
+}
+
+/* line 5, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homehero-outer {
+  background: #ffc1c9;
+  padding: 24px;
+}
+
+@media screen and (max-width: 500px) {
+  /* line 5, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+  .homehero-outer {
+    padding: 20px;
+  }
+}
+
+/* line 14, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homehero-inner {
+  width: 100%;
+  height: 100%;
+  background: #ffa6b2;
+}
+
+/* line 20, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homehero-text-outer {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 26, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homehero-text-inner {
+  display: table-cell;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* line 31, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homehero-text-inner h1 {
+  color: #003f5d;
+  font-size: 126px;
+  letter-spacing: .03em;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 650px) {
+  /* line 31, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+  .homehero-text-inner h1 {
+    font-size: 86px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  /* line 31, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+  .homehero-text-inner h1 {
+    font-size: 54px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  /* line 31, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+  .homehero-text-inner h1 {
+    font-size: 186px;
+  }
+}
+
+/* line 54, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.hero-title {
+  color: #003f5d;
+  font-weight: lighter;
+  margin-bottom: 0px;
+  margin-top: 24px;
+  line-height: 0.8;
+  -webkit-font-feature-settings: "kern" on, "liga" on, "calt" on, "ss01";
+          font-feature-settings: "kern" on, "liga" on, "calt" on, "ss01";
+}
+
+/* line 68, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homesub-container {
+  margin-top: 12px;
+  opacity: 1.0;
+  transition: 0.4s;
+  overflow: hidden;
+  min-height: 75px;
+  position: relative;
+}
+
+/* line 78, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.wf-loading .homesub-container {
+  opacity: 0;
+}
+
+/* line 84, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homesub-tag {
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding-top: 8px;
+  transition: margin-top 0.8s;
+}
+
+/* line 93, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homesub-tag:before {
+  content: "";
+  width: 80px;
+  background: white;
+  height: 6px;
+  display: block;
+  left: 50%;
+  margin-left: -40px;
+  margin-bottom: 4px;
+  position: absolute;
+  margin-top: -8px;
+  transition: margin-top 0.8s, width 0.8s cubic-bezier(0.12, 4.5, 0.89, 1.26), margin-left 0.8s cubic-bezier(0.12, 4.5, 0.89, 1.26);
+}
+
+/* line 113, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.showmenu .homesub-tag {
+  margin-top: -50px;
+}
+
+/* line 116, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.showmenu .homesub-tag:before {
+  margin-top: 42px;
+  width: 0;
+  margin-left: 0;
+  transition: margin-top 0.8s, width 0.8s cubic-bezier(0.12, -4.5, 0.66, -0.49), margin-left 0.8s cubic-bezier(0.12, -4.5, 0.66, -0.49);
+}
+
+/* line 132, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homesub-text {
+  font-family: "chaparral-pro", sans-serif;
+  font-weight: light;
+  font-style: italic;
+  font-size: 34px;
+}
+
+@media screen and (max-width: 650px) {
+  /* line 132, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+  .homesub-text {
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  /* line 132, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+  .homesub-text {
+    font-size: 18px;
+  }
+}
+
+/* line 147, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homesub-menu {
+  text-align: center;
+}
+
+/* line 151, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homesub-menu li {
+  display: inline-block;
+  margin-left: 24px;
+  margin-right: 24px;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+}
+
+/* line 160, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homesub-menu li:last-child {
+  margin-right: 0;
+}
+
+/* line 163, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homesub-menu li:first-child {
+  margin-left: 0;
+}
+
+@media screen and (max-width: 650px) {
+  /* line 151, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+  .homesub-menu li {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  /* line 151, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+  .homesub-menu li {
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+}
+
+/* line 176, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homesub-menu li:after {
+  content: "";
+  background: white;
+  height: 6px;
+  display: block;
+  z-index: 5;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  width: 0;
+  left: 50%;
+  transition: 0.4s;
+}
+
+/* line 192, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.showmenu .homesub-menu li:after {
+  width: 100%;
+  left: 0;
+}
+
+/* line 200, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homesub-menu li:hover:after {
+  background: #003f5d;
+}
+
+/* line 206, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homesub-menu li h3 {
+  margin-bottom: -100px;
+  transition: 0.4s;
+  padding-bottom: 4px;
+}
+
+/* line 211, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.showmenu .homesub-menu li h3 {
+  margin-bottom: 0;
+}
+
+/* line 217, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homesub-menu li:nth-child(2) h3, .homesub-menu li:nth-child(2):after {
+  transition: 0.4s;
+}
+
+/* line 220, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homesub-menu li:nth-child(3) h3, .homesub-menu li:nth-child(3):after {
+  transition: 0.8s;
+}
+
+/* line 223, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homesub-menu li:nth-child(4) h3, .homesub-menu li:nth-child(4):after {
+  transition: 1s;
+}
+
+/* line 234, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homecanvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* line 243, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.homecanvas[resize] {
+  width: 100%;
+  height: 100%;
+}
+
+/* line 254, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.home-btn-container {
+  text-align: center;
+  bottom: 24px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+/* line 267, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.btn-showreel {
+  font-family: "platform", "Platform Web", Helvetica, Arial, "Lucida Grande", sans-serif;
+  letter-spacing: 0.05em;
+  font-size: 18px;
+  padding: 8px 16px;
+  background: #ffc1c9;
+  color: #003f5d;
+  border: 3px solid #003f5d;
+  transition: 0.2s;
+}
+
+/* line 277, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.btn-showreel:hover {
+  background: #ffc1c9;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+/* line 289, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.btn-showmenu {
+  border-radius: 50px;
+  color: #003f5d;
+  width: 50px;
+  height: 50px;
+  margin-left: 8px;
+  background: #ffc1c9;
+  top: 0;
+  position: absolute;
+  transition: background 0.6s;
+}
+
+/* line 307, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.btn-showmenu:before {
+  content: "";
+  width: 20px;
+  height: 3px;
+  position: absolute;
+  display: block;
+  background: #003f5d;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+
+/* line 320, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.btn-showmenu:after {
+  content: "";
+  width: 3px;
+  height: 20px;
+  position: absolute;
+  display: block;
+  background: #003f5d;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  transition: 0.4s;
+}
+
+/* line 334, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.btn-showmenu:hover {
+  background: #ffa6b2;
+}
+
+/* line 338, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.showmenu .btn-showmenu {
+  background: #003f5d;
+}
+
+/* line 341, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.showmenu .btn-showmenu:before {
+  background: white;
+}
+
+/* line 345, /Users/niallhenn/my-repos/nativechat/src/sass/pages/_home.scss */
+.showmenu .btn-showmenu:after {
+  height: 0;
+  background: white;
+}

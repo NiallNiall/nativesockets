@@ -45,6 +45,14 @@ module.exports = function(args) {
             }
             // console.log('words');
             break;
+        case 'talkbubbles':
+            thisDir = {
+                'name':'talkbubbles',
+                'folder':'talkbubbles',
+                'midi':'midi-standard'
+            }
+            // console.log('words');
+            break;
         default:
             thisDir = {
                 'name':'Unrecognised, starting Standard as default',
