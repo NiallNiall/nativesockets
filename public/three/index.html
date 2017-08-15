@@ -18,6 +18,7 @@
 <body>
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/three.min.js"></script>
+    <script src="js/OrbitControls.js"></script>
     <script src="js/convexGeometry.js"></script>
     <script>
     window.onload = function() {
@@ -39,6 +40,12 @@
     var camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000);
     camera.position.set(-15, 10, 10);
     camera.lookAt(scene.position);
+
+    // controls
+                controls = new THREE.OrbitControls( camera, renderer.domElement );
+                controls.minDistance = 20;
+                controls.maxDistance = 50;
+                controls.maxPolarAngle = Math.PI / 2;
 
 
     // Add default Cube ================================================

@@ -1,5 +1,5 @@
 var txtNum = 0;
-var txt = ['Boop!', 'Tszh!'];
+var txt = ['Do', 'Not', 'Be', 'Afraid'];
 // Set Availability Boolean
 var available = true;
 // Create a copy to store previous state
@@ -36,6 +36,13 @@ module.exports = {
              }
          }
          oldAvailable = available;
+    },
+
+    addWord: function(thisWord){
+        txt.push(thisWord);
+        if(txt.length > 5){
+            txt.splice(0, 1);
+        }
     }
 
 }

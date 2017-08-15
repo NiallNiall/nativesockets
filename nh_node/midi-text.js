@@ -39,5 +39,15 @@ module.exports = function(io) {
         }
     });
 
+    io.on('connection', function(socket) {
+        console.log('A New Connection! ' + socket.id)
+
+        socket.on('fromCli', function(data) {
+            // console.log(data);
+            textr.addWord(data);
+        });
+
+    });
+
 
 }
