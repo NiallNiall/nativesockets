@@ -1,246 +1,226 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Syncey Test</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <script src="/socket.io/socket.io.js"></script>
+    <title>three.js canvas - geometry - cube</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <style>
-    html, body {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-    }
-
     body {
-        background-color: #030303;
+        font-family: Monospace;
+        background-color: #f0f0f0;
+        margin: 0px;
+        overflow: hidden;
     }
-
-    #canvas {
-        display: block;
-        position: absolute;
-        z-index: 20;
-        /*background: #f00;*/
-        /*width: 100%;*/
-    }
-
-    .fullWidthCanvas {
-      /*background: #08ff03;*/
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      z-index: 10;
-    }
-
     </style>
 </head>
 
 <body>
-
-    <canvas id="paperCanvas" class="fullWidthCanvas" resize></canvas>
-
-
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/three.min.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/convexGeometry.js"></script>
     <script>
-    var flashing = false;
-    var clrFade = 255;
-
-    var myCanvas = document.getElementById("paperCanvas");
+    window.onload = function() {
 
 
-    // Converts from degrees to radians.
-    Math.radians = function(degrees) {
-      return degrees * Math.PI / 180;
-    };
+    var socket = io.connect();
 
-    var getCircleXPos = function(thisx, inc, Radius) {
-      var angle = Math.radians(inc);
-      var x = thisx + Math.sin(angle) * Radius;
-      return x;
+
+
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setClearColor(0x133854);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    var scene = new THREE.Scene();
+    scene.add(new THREE.HemisphereLight(0xffffff, 0xffffff, 1.0));
+
+    var camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000);
+    camera.position.set(-15, 10, 10);
+    camera.lookAt(scene.position);
+
+    // controls
+                controls = new THREE.OrbitControls( camera, renderer.domElement );
+                controls.minDistance = 20;
+                controls.maxDistance = 50;
+                controls.maxPolarAngle = Math.PI / 2;
+
+
+    // Add default Cube ================================================
+
+    // Make cube geometry using default cube method         
+    var geometry = new THREE.BoxGeometry(5, 5, 5);
+    // Make a material using a default method
+    var material = new THREE.MeshLambertMaterial({ color: 0xFFFFFF });
+
+    // Make a cube object with geometry and material
+    var mesh = new THREE.Mesh(geometry, material);
+
+    // Add it to scene
+    scene.add(mesh);
+
+    // Add morphing blob ================================================
+
+    var meshMaterial = new THREE.MeshLambertMaterial({
+        color: 0xffffff,
+        opacity: 0.2,
+        transparent: true
+    });
+
+    // Make Dodecahedron Points array using geometry method
+    var pointsGeometry = new THREE.DodecahedronGeometry(10);
+
+    for (var i = 0; i < pointsGeometry.vertices.length; i++) {
+
+        // pointsGeometry.vertices[i].add(randomPoint().multiplyScalar(2)); // wiggle the points
+
     }
 
-    var getCircleYPos = function(thisy, inc, Radius) {
-      var angle = Math.radians(inc);
-      var y = thisy + Math.cos(angle) * Radius;
-      return y;
-    }
+    var pointsMaterial = new THREE.PointsMaterial({
 
-    var sclr = 0;
-
-    function drawRndCircle(x, y, radius){
-
-       for(var i = 0; i < 360; i+=1){
-        var rndrad = Math.floor((Math.random() * radius) + 70);
-        var outx = getCircleXPos(x,i, rndrad);
-        var outy = getCircleYPos(y,i, rndrad);
-
-        drawPixel(outx, outy);
-       }  
-    }
-
-    function drawRndCircleClr(x, y, radius, clr){
-
-       for(var i = 0; i < 360; i+=1){
-        var rndrad = Math.floor((Math.random() * radius) + 30);
-        var outx = getCircleXPos(x,i, rndrad);
-        var outy = getCircleYPos(y,i, rndrad);
-
-        drawPixelClr(outx, outy, clr);
-       }  
-    }
-
-
-    function clearCanvas(){
-        ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
-    }
-
-    function drawCircle(x, y, radius){
-       ctx.beginPath();
-        ctx.arc(x,y,radius,0,Math.PI*2);
-        ctx.lineWidth=5;
-        ctx.strokeStyle = 'White';
-        ctx.stroke();     
-    }
-
-    function drawPixel(x, y){
-        drawPixelClr(x,y,'White');
-    }
-
-    function drawPixelClr(x, y, clr){
-        ctx.beginPath();
-        ctx.rect(x,y,5,5);
-        ctx.fillStyle = clr;
-        ctx.fill();
-        // console.log(x + ', ' + y);
-    }
-
-    function drawCircleClr(x, y, radius, clr){
-        ctx.beginPath();
-        ctx.arc(x,y,radius,0,Math.PI*2);
-        ctx.lineWidth=5;
-        ctx.strokeStyle = clr;
-        ctx.stroke(); 
-    }
-
-    function writeMessage(canvas, message) {
-        // context.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.font = '18pt Calibri';
-        ctx.fillStyle = 'white';
-        ctx.fillText(message, 10, 25);
-      }
-
-    myCanvas.width = window.innerWidth;
-    myCanvas.height = window.innerHeight;
-    var ctx = myCanvas.getContext("2d");
-
-    var midWidth = myCanvas.width/2;
-    var midHeight = myCanvas.height/2;
-
-    // var x1 = myCanvas.width/2;
-    // var y1 = myCanvas.height/2;
-
-    var socket = io();
-
-    writeMessage(myCanvas, 'asss');
-
-    // drawPixel(200,200);
-
-    function drawDots(thisArray) {
-            for (var i = 0; i < thisArray.length; i++) {
-        drawCircleClr(thisArray[i].x, thisArray[i].y, 20, thisArray[i].color);
-      }
-    }
-
-    function drawDotsRad(thisArray, thisRad) {
-      for (var i = 0; i < thisArray.length; i++) {
-
-        var startX = midWidth - thisArray[i].cWidth/2;
-        var startY = midHeight - thisArray[i].cHeight/2
-        // drawCircleClr(thisArray[i].x, thisArray[i].y, thisRad, thisArray[i].color);
-        drawRndCircleClr(startX + thisArray[i].x, startY +thisArray[i].y, thisRad, 'Red');
-      }
-    }
-
-    function drawRects(thisArray) {
-
-
-
-      for (var i = 0; i < thisArray.length; i++) {
-
-        var thisRWidth = thisArray[i].cWidth;
-        var thisRHeight = thisArray[i].cHeight;
-
-        ctx.rect(midWidth-thisRWidth/2,midHeight-thisRHeight/2,thisRWidth,thisRHeight);
-        ctx.lineWidth=5;
-        ctx.strokeStyle = 'Blue';
-        ctx.stroke();
-      }
-    }
-
-    // var dots = [];
-
-
- // Do something when it loads!
-    document.addEventListener("DOMContentLoaded", function() {
-
-        var dots = [];
-        var dotRects = [];
-
-        // This is listening for message called myFunc
-        socket.on('mouseFromNode', function(data) {
-            // console.log(data.x);
-            // changeText(data.txt);
-            // writeMessage(myCanvas, data.x + ', ' + data.y);
-            // drawPixel(data.x, data.y);
-        });
-
-        // This is listening for a function with the name
-        socket.on('clientsFromNode', function(data) {
-
-            var names = [];
-
-            // dots.length = 0;
-            // var dots = []; //WHY DOES THIS WORK
-
-            // Trying this to clear array
-            for (var i = dots.length; i > 0; i--) {
-             dots.pop();
-            }
-
-            for (var i = 0; i < data.length; i++) {
-              // names.push(data[i].name);
-              // console.log(data[i]);
-              names.push(data[i].x + ', ' + data[i].y);
-              dots.push(data[i]);
-              // drawPixel(data.x, data.y);
-            }
-
-            // clearCanvas();
-
-            // writeMessage(myCanvas, names);//data.length);
-
-            // drawDots(dots);
-            // console.log(dots);
-
-        });
-
-        socket.on('liveBeat', function(data) {
-
-        var thisFade = data.clr;
-            clearCanvas();
-
-            // console.log(dots);
-            // drawRndCircle(x1, y1, thisFade/4);
-
-            drawRects(dots);
-
-            drawDotsRad(dots, thisFade/8);
-
-        });
-
+        color: 0xFFFFFF,
+        size: 1,
+        alphaTest: 0.5
 
     });
 
+    var points = new THREE.Points(pointsGeometry, pointsMaterial);
+
+    scene.add(points);
+
+    // Make Geometry from Points
+    var meshGeometry = new THREE.ConvexGeometry(pointsGeometry.vertices);
+
+    // Make object from Dodec
+    var dodecMesh = new THREE.Mesh(meshGeometry, meshMaterial);
+
+    // Add object to scene
+    scene.add(dodecMesh);
+
+
+    var mat = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 });
+
+    var wireframe = new THREE.LineSegments(meshGeometry, mat);
+
+    scene.add(wireframe);
+
+
+
+    var testPulse = 0;
+    var incr = 0;
+
+    var ogVecArray = [];
+    var rndDirArray = [];
+
+    for (var i = 0; i < dodecMesh.geometry.vertices.length; i++) {
+
+        var thisPoint = {
+            'x': dodecMesh.geometry.vertices[i].x,
+            'y': dodecMesh.geometry.vertices[i].y,
+            'z': dodecMesh.geometry.vertices[i].z
+        }
+
+        var rndPoint = randomPoint();
+
+        ogVecArray.push(thisPoint);
+        rndDirArray.push(rndPoint);
+    }
+
+    console.log(ogVecArray);
+
+
+    render();
+    animate();
+
+    function animate() {
+
+        // requestAnimationFrame(animate);
+        // testPulse = 1.1;
+        // incr += 0.1;
+
+        // var sinr = Math.sin(incr / 4);
+        // var sinr2 = Math.sin(incr / 2);
+        // var sinr3 = Math.sin(incr / 3);
+
+        // for (var i = 0; i < dodecMesh.geometry.vertices.length; i++) {
+
+        //     var ogPoint = ogVecArray[i];
+        //     var rndPoint = rndDirArray[i];
+
+        //     dodecMesh.geometry.vertices[i].x = ogPoint.x + (rndPoint.x * (sinr));
+        //     dodecMesh.geometry.vertices[i].y = ogPoint.y + (rndPoint.y * (sinr2));
+        //     dodecMesh.geometry.vertices[i].z = ogPoint.z + (rndPoint.z * (sinr3));
+
+
+        //     points.geometry.vertices[i].x = ogPoint.x + (rndPoint.x * (sinr));
+        //     points.geometry.vertices[i].y = ogPoint.y + (rndPoint.y * (sinr2));
+        //     points.geometry.vertices[i].z = ogPoint.z + (rndPoint.z * (sinr3));
+        // }
+
+        // dodecMesh.geometry.verticesNeedUpdate = true;
+
+        // points.geometry.verticesNeedUpdate = true;
+
+        // render();
+
+    }
+
+
+    function moveMesh(amt) {
+
+        var pulseAmt = amt / 100;
+
+        for (var i = 0; i < dodecMesh.geometry.vertices.length; i++) {
+
+            var ogPoint = ogVecArray[i];
+            var rndPoint = rndDirArray[i];
+
+            dodecMesh.geometry.vertices[i].x = ogPoint.x + (rndPoint.x * (pulseAmt));
+            dodecMesh.geometry.vertices[i].y = ogPoint.y + (rndPoint.y * (pulseAmt));
+            dodecMesh.geometry.vertices[i].z = ogPoint.z + (rndPoint.z * (pulseAmt));
+
+
+            points.geometry.vertices[i].x = ogPoint.x + (rndPoint.x * (pulseAmt));
+            points.geometry.vertices[i].y = ogPoint.y + (rndPoint.y * (pulseAmt));
+            points.geometry.vertices[i].z = ogPoint.z + (rndPoint.z * (pulseAmt));
+        }
+
+        dodecMesh.geometry.verticesNeedUpdate = true;
+
+        points.geometry.verticesNeedUpdate = true;
+
+        render();
+
+    }
+
+    socket.on('liveBeat', function(data) {
+        // var thisFade = 255 - data.clr;
+        var thisFade = data.clr;
+        // clearCanvas();
+
+        // if(thisFade > 200){
+        //     sclr +=1;                
+        // }
+
+        moveMesh(thisFade);
+
+ 
+    });
+
+    function render() {
+
+        renderer.render(scene, camera);
+
+    }
+
+
+    };
+
+    function randomPoint() {
+        return new THREE.Vector3(THREE.Math.randFloat(-1, 1), THREE.Math.randFloat(-1, 1), THREE.Math.randFloat(-1, 1));
+    }
     </script>
 </body>
 

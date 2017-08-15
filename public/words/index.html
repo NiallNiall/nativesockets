@@ -3,7 +3,7 @@
 
 <head>
     <title>Syncey Test</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="/socket.io/socket.io.js"></script>
     <style>
@@ -14,9 +14,9 @@
     }
 
     body {
-        background-color: #3f3863;
+        background-color: #000;
         color: #fff;
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
     h1 {
@@ -44,17 +44,55 @@
       border: none;
       border-bottom: solid 4px #c9c9c9;
       transition: border 0.3s;
-      font-size: 18px;
+      font-size: 24px;
     }
 
-    input[type="button"] {
+    button{
         background: #ddd;
         padding: 10px;
         border: none;
         font-size: 18px;
         text-transform: uppercase;
         font-weight: bold;
+        display: block;
+        margin: auto;
+        margin-top: 18px;
+        width:200px;
     }
+    button:hover {
+        background: #f03;
+    }
+/*    button:before {
+        content:"";
+        display: block;
+
+    }*/
+     button.submitted {
+
+        animation-name: example;
+        animation-duration: .5s;
+     }
+
+/*    button.submitted:before {
+        content:"";
+        display: inline-block;
+        background: #f00;
+        position: absolute;
+        /*transform:scale(1.5);*/
+/*        animation-name: example;
+        animation-duration: 4s;
+        content:" ":
+        width:100%;
+        height:100%;
+        left:0;
+        top:0;
+    }*/
+
+    @keyframes example {
+        from {box-shadow: 0px 0px 1px 0px #fff;}
+        to {box-shadow: 0px 0px 1px 10px #fff;}
+    }
+
 
     </style>
 </head>
@@ -64,7 +102,7 @@
     <div class="homehero-text-outer">
         <div class="homehero-text-inner">
                 <input type="text" id="txtInput">
-                <input type="button" onclick="myFunction()" value="Submit">
+                <button type="button" onclick="myFunction()" id="subBtn" class="">Submit</button>
         </div>
     </div>
     <script>
@@ -77,6 +115,12 @@
         var thisVal = document.getElementById("txtInput").value;
         console.log(thisVal);
         socket.emit('fromCli', thisVal);
+
+        var thisBtn = document.getElementById("subBtn");
+        thisBtn.classList.add('submitted');
+        setTimeout(function(){
+            thisBtn.classList.remove('submitted')
+        }, 1000);
     }
     </script>
 </body>
