@@ -146,6 +146,7 @@
         "cHeight": myCanvas.height,
         "x":x1,
         "y":y1,
+        "color":'#fff'
     }
 
     socket.emit('mouseFromCli', thisPoint);
@@ -167,8 +168,6 @@
         thisPoint.x = mousePosVec.x;
         thisPoint.y = mousePosVec.y;
 
-        // drawCircle(thisPoint.x, thisPoint.y, 20);
-        // console.log(mousePosVec);
         socket.emit('mouseFromCli', thisPoint);
     }, false);
 
@@ -184,13 +183,14 @@
 
             var thisFade = data.clr;
 
-            console.log('yoasyo');
-
             clearCanvas();
 
-            // drawDotsRad(dots, thisFade/8);
+            drawRndCircleClr(thisPoint.x, thisPoint.y, thisFade/8, thisPoint.color);
 
-            drawRndCircleClr(thisPoint.x, thisPoint.y, thisFade/8, 'White');
+        });
+
+         midio.on('colorFromCli', function(data) {
+            thisPoint.color = data;
 
         });
 

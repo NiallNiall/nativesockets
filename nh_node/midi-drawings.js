@@ -41,7 +41,8 @@ module.exports = function(io) {
 
         console.log('A New Connection! ' + socket.id)
 
-        var rndClr = helpers.randomClr();
+        var rndClr = helpers.newRndClr();
+        console.log(rndClr);
 
         var thisClient = {
             "name": socket.id,
@@ -55,6 +56,7 @@ module.exports = function(io) {
         }
 
         clients.push(thisClient);
+        io.emit('colorFromCli', thisClient.color);
 
         // =================================================
 

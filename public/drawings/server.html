@@ -141,7 +141,7 @@
 
     var socket = io();
 
-    writeMessage(myCanvas, 'asss');
+    writeMessage(myCanvas, 'No input Yet');
 
     // drawPixel(200,200);
 
@@ -157,7 +157,7 @@
         var startX = midWidth - thisArray[i].cWidth/2;
         var startY = midHeight - thisArray[i].cHeight/2
         // drawCircleClr(thisArray[i].x, thisArray[i].y, thisRad, thisArray[i].color);
-        drawRndCircleClr(startX + thisArray[i].x, startY +thisArray[i].y, thisRad, 'Red');
+        drawRndCircleClr(startX + thisArray[i].x, startY +thisArray[i].y, thisRad, thisArray[i].color);
       }
     }
 
@@ -172,7 +172,7 @@
 
         ctx.rect(midWidth-thisRWidth/2,midHeight-thisRHeight/2,thisRWidth,thisRHeight);
         ctx.lineWidth=5;
-        ctx.strokeStyle = 'Blue';
+        ctx.strokeStyle = '#666';
         ctx.stroke();
       }
     }
