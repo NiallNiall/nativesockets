@@ -2,12 +2,12 @@
 
 A quick app playing around with websockets and midi from Traktor.
 
-Needs Traktor (obviously) and Node
+Needs Traktor obviously, and Node
 
-Drop me a line if your having any questions
+Instructions below are a bit sketchy, so drop me a line if you need help
 
 ### Command Line Steps
-* Download node
+* Install node
 * Clone this repo
 * npm install
 * npm start (See below for arguments)
