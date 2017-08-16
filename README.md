@@ -1,6 +1,7 @@
 # Native Sockets
 
-A quick app playing around with websockets and midi from Traktor
+A quick app playing around with websockets and midi from Traktor.
+
 Needs Traktor (obviously) and Node
 
 Drop me a line if your having any questions
