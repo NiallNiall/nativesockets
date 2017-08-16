@@ -11,6 +11,7 @@ Drop me a line if your having any questions
 * Clone this repo
 * npm install
 * npm start (See below for arguments)
+* Starts a server at localhost 3000
 
 ### Traktor Installation Steps
 The script is waiting to receive a Midi message from the BeatPhase in Traktor
