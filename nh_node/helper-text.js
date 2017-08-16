@@ -6,6 +6,9 @@ var available = true;
 var oldAvailable = available;
 var io = {};
 
+// Maximum length of the words
+var maxArray = 8;
+
 module.exports = {
     setIo: function(thisIO){
         io = thisIO;
@@ -27,10 +30,10 @@ module.exports = {
              // do nothing
          } else {
              if (!available) {
-                 console.log("");
+                 // console.log("");
                  // triggerEvent();
              } else {
-                 console.log("Beat Beat Beat!");
+                 // console.log("Beat Beat Beat!");
                  // txtNum+=1;
                  this.moveText();
              }
@@ -40,7 +43,7 @@ module.exports = {
 
     addWord: function(thisWord){
         txt.push(thisWord);
-        if(txt.length > 5){
+        if(txt.length > maxArray){
             txt.splice(0, 1);
         }
     }

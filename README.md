@@ -1,22 +1,31 @@
 # Native Sockets
 
-* A quick app playing around with websockets and midi
+A quick app playing around with websockets and midi from Traktor
 
-* should just work with NPM start
+Needs Traktor (obviously) and Node
 
-* Waiting to receive a Midi message from the BeatPhase in Traktor
-* Select a virtual MIDI device named Phonode Midi
+### Steps
+* Download node
+* Clone this repo
+* npm install
+* npm start ..... See below
+
+Waiting to receive a Midi message from the BeatPhase in Traktor
+Select a virtual MIDI device named Phonode Midi
 * Add out > Deck Common > Beat Phase
 * Send PitchBend to Ch.11 Pitchbend
 
-* npm start standard
-* Starts the Basic flashing version
+## Versions
+If no version is recognised, will start the basic one.
 
-* npm start three
-* Starts a 3D version
+### npm start standard
+Starts the Basic flashing version
 
-* npm start words
-* Starts a word Version
+### npm start three
+Starts a 3D version
 
-* npm start drawings
-* Starts a drawing Version
+### npm start words
+Starts a word Version
+
+### npm start drawings
+Starts a drawing Version

@@ -47,7 +47,7 @@
       font-size: 24px;
     }
 
-    button{
+    .subBtn{
         background: #ddd;
         padding: 10px;
         border: none;
@@ -58,8 +58,10 @@
         margin: auto;
         margin-top: 18px;
         width:200px;
+        text-decoration: none;
+        color: #000;
     }
-    button:hover {
+    .subBtn:hover {
         background: #f03;
     }
 /*    button:before {
@@ -67,26 +69,25 @@
         display: block;
 
     }*/
-     button.submitted {
+     .subBtn.submitted {
+        background: #f03;
 
         animation-name: example;
         animation-duration: .5s;
      }
 
-/*    button.submitted:before {
-        content:"";
-        display: inline-block;
-        background: #f00;
-        position: absolute;
-        /*transform:scale(1.5);*/
-/*        animation-name: example;
-        animation-duration: 4s;
-        content:" ":
-        width:100%;
-        height:100%;
-        left:0;
-        top:0;
-    }*/
+    .subAgain {
+        display: none;
+    }
+    .submitcont .subAgain {
+        display: block;
+    }
+    .submitcont .subFirst {
+        display: none;
+    }
+    .submitcont input {
+        display: none;
+    }
 
     @keyframes example {
         from {box-shadow: 0px 0px 1px 0px #fff;}
@@ -100,9 +101,11 @@
 <body>
     <!-- <h1 id="title">Boots</h1> -->
     <div class="homehero-text-outer">
-        <div class="homehero-text-inner">
-                <input type="text" id="txtInput">
-                <button type="button" onclick="myFunction()" id="subBtn" class="">Submit</button>
+        <div class="homehero-text-inner" id="mainCont">
+            <h3>Type a word below:</h3>
+            <input type="text" id="txtInput">
+            <button type="button" onclick="myFunction()" id="subBtn" class="subBtn subFirst">Submit</button>
+            <a href="" class="subBtn subAgain">Submit Again</a>
         </div>
     </div>
     <script>
@@ -111,7 +114,12 @@
 
     var socket = io();
 
+    var submitted = false;
+
     function myFunction() {
+
+        var thisCont = document.getElementById("mainCont");
+
         var thisVal = document.getElementById("txtInput").value;
         console.log(thisVal);
         socket.emit('fromCli', thisVal);
@@ -120,7 +128,13 @@
         thisBtn.classList.add('submitted');
         setTimeout(function(){
             thisBtn.classList.remove('submitted')
-        }, 1000);
+            thisCont.classList.add('submitcont');
+        }, 500);
+
+        
+        
+
+        submitted = true;
     }
     </script>
 </body>
